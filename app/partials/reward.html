@@ -1,0 +1,80 @@
+<section>
+    <div class="green-bar">
+        <figure ng-show="showForm">
+        </figure>
+        <h1 class="success-title" ng-show="rewardSuccess">
+            <b><span>Thank</span><br/><span>You!</span></b>
+        </h1>
+        <h1 ng-show="rewardError">Sorry!</h1>
+        <h1 ng-show="generatingReward">Generating...</h1>
+    </div>
+    <div class="success-graphic row" ng-show="rewardSuccess"></div>
+    <div class="row">
+        <form name="recipientform" ng-submit="createReward()">
+            <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1" ng-show="showForm">
+                <div class="row" ng-if="!recipient.FirstName || !recipient.LastName">
+                    <div ng-class="{'col-xs-6':!recipient.LastName, 'col-xs-12':recipient.LastName}" ng-if="!recipient.FirstName">
+                        <label>First Name</label>
+                        <input name="FirstName" class="form-control" type="text" ng-model="recipient.FirstName" placeholder="First Name" ng-required="!recipient.FirstName" />
+                    </div>
+                    <div ng-class="{'col-xs-6':!recipient.FirstName, 'col-xs-12':recipient.FirstName}" ng-if="!recipient.LastName">
+                        <label>Last Name</label>
+                        <input name="LastName" class="form-control" type="text" ng-model="recipient.LastName" placeholder="Last Name" ng-required="!recipient.LastName" />
+                    </div>
+                </div>
+                <div ng-if="!recipient.Company">
+                    <label>Company</label>
+                    <input name="Company" class="form-control" type="text" ng-model="recipient.Company" placeholder="Company" ng-required="false" />
+                </div>
+                <div ng-if="!recipient.Address1">
+                    <label>Address</label>
+                    <input name="Address1" class="form-control" type="text" ng-model="recipient.Address1" placeholder="Address 1" ng-required="!recipient.Address1" />
+                </div>
+                <div class="row" ng-if="!recipient.City || !recipient.State || !recipient.ZipCode">
+                    <div ng-class="{'col-xs-4':(!recipient.State && !recipient.ZipCode),
+                         'col-xs-6':((!recipient.State && recipient.ZipCode)||(recipient.State && !recipient.ZipCode)),
+                         'col-xs-12': (recipient.State && recipient.ZipCode)}"
+                         ng-if="!recipient.City">
+                        <label>City</label>
+                        <input name="City" class="form-control" type="text" ng-model="recipient.City" placeholder="City" ng-required="!recipient.City" />
+                    </div>
+                    <div ng-class="{'col-xs-4':(!recipient.City && !recipient.ZipCode),
+                         'col-xs-6':((!recipient.City && recipient.ZipCode)||(recipient.City && !recipient.ZipCode)),
+                         'col-xs-12': (recipient.City && recipient.ZipCode)}"
+                         ng-if="!recipient.State">
+                        <div ng-show="!hasStates()">
+                            <label>State</label>
+                            <input ng-show="!hasStates()" class="form-control" type="text" ng-model="recipient.State" placeholder="State" autocomplete="off" ng-required="!hasStates()" />
+                        </div>
+                        <div ng-show="hasStates()">
+                            <label>State</label>
+                            <select ng-show="hasStates()" class="form-control" ng-options="state.value as state.label for state in states | filter:country" ng-model="recipient.State" placeholder="State" ng-required="hasStates()">
+                            </select>
+                        </div>
+                    </div>
+                    <div ng-class="{'col-xs-4':(!recipient.City && !recipient.State),
+                         'col-xs-6':((!recipient.City && recipient.State)||(recipient.City && !recipient.State)),
+                         'col-xs-12': (recipient.City && recipient.State)}"
+                         ng-if="!recipient.ZipCode">
+                        <label>Zip</label>
+                        <input name="ZipCode" class="form-control" type="text" ng-model="recipient.ZipCode" placeholder="Zip" ng-required="!recipient.ZipCode" />
+                    </div>
+                </div>
+                <div ng-if="!recipient.Country">
+                    <label>Country</label>
+                    <select name="country" class="form-control" ng-options="country.value as country.label for country in countries" ng-model="recipient.Country" placeholder="Country" />
+                </div>
+                <div ng-if="!recipient.Email">
+                    <label>Email</label>
+                    <input name="Email" class="form-control" type="email" ng-model="recipient.Email" placeholder="Email Address" ng-required="!recipient.Email" />
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-xs-offset-3">
+                        <button type="submit" class="btn btn-block btn-lg btn-success" ng-disabled="recipientform.$invalid">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <loadingindicator ng-show="generatingReward"></loadingindicator>
+</section>
