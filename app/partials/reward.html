@@ -48,8 +48,7 @@
                         </div>
                         <div ng-show="hasStates()">
                             <label>State</label>
-                            <select ng-show="hasStates()" class="form-control" ng-options="state.value as state.label for state in states | filter:country" ng-model="recipient.State" placeholder="State" ng-required="hasStates()">
-                            </select>
+                            <select ng-show="hasStates()" class="form-control" ng-options="state.value as state.label for state in states | filter:country" ng-model="recipient.State" placeholder="State" ng-required="hasStates()"></select>
                         </div>
                     </div>
                     <div ng-class="{'col-xs-4':(!recipient.City && !recipient.State),
@@ -62,7 +61,7 @@
                 </div>
                 <div ng-if="!recipient.Country">
                     <label>Country</label>
-                    <select name="country" class="form-control" ng-options="country.value as country.label for country in countries" ng-model="recipient.Country" placeholder="Country" />
+                    <select name="country" class="form-control" ng-options="country.value as country.label for country in countries" ng-model="recipient.Country" placeholder="Country"></select>
                 </div>
                 <div ng-if="!recipient.Email">
                     <label>Email</label>
