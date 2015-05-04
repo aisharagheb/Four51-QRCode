@@ -5,7 +5,7 @@ function ($scope, $location, $routeParams, Resources, Reward) {
     $scope.rewardSuccess = false;
     $scope.rewardError = false;
 
-    $scope.recipient = {};
+    $scope.recipient = {Country: 'US'};
 
     $scope.createReward = function() {
         $scope.generatingReward = true;
@@ -29,7 +29,7 @@ function ($scope, $location, $routeParams, Resources, Reward) {
     $scope.states = Resources.states;
 
     $scope.hasStates = function() {
-        return ($scope.tempRecipient && $scope.tempRecipient.Country) ? ($scope.tempRecipient.Country == 'US' || $scope.tempRecipient.Country == 'CA' || $scope.tempRecipient.Country == 'NL') : false;
+        return ($scope.recipient && $scope.recipient.Country) ? ($scope.recipient.Country == 'US' || $scope.recipient.Country == 'CA' || $scope.recipient.Country == 'NL') : false;
     };
 
 }]);

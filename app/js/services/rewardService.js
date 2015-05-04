@@ -24,6 +24,13 @@ four51.app.factory('Reward', ['Product', 'Address', 'Order', 'User', function(Pr
         u.Email = recipient.Email;
         u.Password = randomString();
         u.ConfirmPassword = u.Password;
+
+        angular.forEach(u.CustomFields, function(field) {
+            if (field.Name == 'Title') {
+                field.Value = recipient.Title;
+            }
+        });
+
         return u;
     }
 
