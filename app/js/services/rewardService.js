@@ -25,14 +25,17 @@ four51.app.factory('Reward', ['Product', 'Address', 'Order', 'User', function(Pr
         u.Password = randomString();
         u.ConfirmPassword = u.Password;
 
-        angular.forEach(u.CustomFields, function(field) {
-            if (field.Name == 'Title') {
-                field.Value = recipient.Title;
-            }
-        });
+//        angular.forEach(u.CustomFields, function(field) {
+//            if (field.Name == 'Title') {
+//                field.Value = recipient.Title;
+//            }
+//        });
 
         return u;
     }
+
+
+
 
     function _create(productInteropID, recipient, user, success, error) {
 
@@ -64,9 +67,10 @@ four51.app.factory('Reward', ['Product', 'Address', 'Order', 'User', function(Pr
                             City: recipient.City,
                             State: recipient.State,
                             Zip: recipient.ZipCode,
-                            Country: country,
+                            Country: recipient.Country,
                             IsShipping: true
                         };
+
                         Address.save(shipAddress,
                             function(address) {
                                 lineItem.ShipAddressID = address.ID;
