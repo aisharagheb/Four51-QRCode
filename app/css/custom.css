@@ -4,3 +4,159 @@ Theme name: My SPA Theme
 Version: 1.0
 Template: Howdy
 */
+
+body {
+    color: #003843 !important;
+}
+
+h1 {
+    font-family: "Lato",sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #003843;
+    font-size: 48px;
+    margin: 0px;
+    line-height: 50px;
+}
+
+h2 {
+    font-family: "Lato",sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #003843;
+    font-size: 36px;
+    margin: 0px;
+}
+
+h3 {
+    font-family: "Lato",sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #003843;
+}
+
+h4 {
+    color: #ff5f32;
+    font-family: "Lato",sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 0;
+}
+
+h5 {
+    font-family: "Lato",sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #003843;
+    font-size: 28px;
+    margin: 0px;
+}
+
+h6 {
+    font-family: "Lato",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #003843;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin: 0px;
+}
+
+label {
+    font-family: "Lato",sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    color: #003843;
+    font-size: 1em;
+}
+
+input, .form-content, textarea, .form-control {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #003843;
+    border-style: none none solid;
+    border-width: medium medium 2px;
+    height: 40px;
+    border-radius: 0px;
+}
+
+.form-control{
+    color: black;
+}
+
+p, ul, li {
+    color: #003843;
+    font-family: "Lato",sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+em {
+    color: #ff5f32;
+    font-family: "Lato",sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.list-group {
+    font-size: 1em;
+}
+
+.panel {
+    background: transparent;
+}
+
+.content {
+    background: url("images/patternBG.bmp");
+    padding: 25px 0;
+    margin: 25px 0;
+}
+
+.btn, a.btn {
+    font-family: "Lato",sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #ff5f32;
+    border: 3px solid #003843;
+    color: white;
+}
+
+.white-bar figure {
+    max-width: 400px;
+}
+
+.success-title {
+    padding-bottom: 25px;
+}
+
+.success-graphic {
+    max-width: 300px;
+}
+
+.success-paragraph {
+    vertical-align: middle;
+    margin: 0 25px;
+}
+
+.bottom-form {
+    padding: 25px 0;
+}
+
+/*.bottom-image {*/
+    /*height: auto;*/
+    /*bottom: 0;*/
+    /*background-color: #ff5f32;*/
+/*}*/

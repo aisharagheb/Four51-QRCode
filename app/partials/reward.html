@@ -1,16 +1,45 @@
 <section>
-    <div class="orange-bar">
-        <figure ng-show="showForm">
-            <img src="css/images/451logo.png" alt="Four51 Logo"/>
-        </figure>
-        <h1 class="success-title" ng-show="rewardSuccess">
-            <b><span>Thank</span><br/><span>You!</span></b>
-        </h1>
-        <h1 ng-show="rewardError">Sorry!</h1>
-        <h1 ng-show="generatingReward">Generating...</h1>
+    <!--this is basically the header-->
+        <div class="white-bar">
+            <figure ng-show="showForm">
+                <img src="css/images/451logo.png" alt="Four51 Logo"/>
+            </figure>
+            <h5 class="success-title" ng-show="rewardSuccess">
+                Thanks for your order!
+            </h5>
+
+            <h1 ng-show="rewardError">Oops!</h1>
+            <h1 ng-show="generatingReward">Generating...</h1>
+        </div>
+
+    <!--body copy for form1 page-->
+    <div class="content" ng-show="showForm">
+        <div class="row" ng-show="showForm">
+            <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1" ng-show="showForm">
+                        <p class="success-paragraph">Thanks for joining us at B2B Online 2015 and for exploring Four51's ordering capabilities. Fill out the information below to get your <em>FREE Portable thanks for  Charger</em> to keep your phone charged and ready to place orders when you're on-the-go. We'll get your Portable Battery Charger in the mail and to you by the end of May!</a></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="success-graphic row" ng-show="rewardSuccess"></div>
-    <div class="row">
+
+
+    <div class="content" ng-hide="generatingReward">
+
+        <!--body copy for success-->
+        <div class="row" ng-show="rewardSuccess">
+            <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1" ng-show="rewardSuccess">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="success-paragraph">Your Portable Battery Charger will be in the mail and to you by the end of May. If any questions come up, shoot us an email: <a href="mailto:marketing@four51.com">marketing@four51.com</a></p>
+                    </div>
+                    <div class="col-xs-12">
+                        <img class="img-responsive text-center success-graphic" align="center" ng-show="rewardSuccess" src="css/images/charger.png" alt="the black and white power pack charger with the orange Four51 logo" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
         <form name="recipientform" ng-submit="createReward()">
             <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1" ng-show="showForm">
                 <div class="row">
@@ -60,23 +89,41 @@
                     <input name="Email" class="form-control" type="email" ng-model="recipient.Email" placeholder="Email Address" ng-required="true" />
                 </div>
 
+                <div class="checkbox-inline">
+                    <label>
+                        <input  type="checkbox" checked="true" ng-model="sendMandrill"/>
+                        <small style="vertical-align: text-top;"> Send me some Case Studies for Manufacturers and Distributors </small>
+                    </label>
 
-                <label>
-                    <input  type="checkbox" checked="true" ng-model="sendMandrill"/><small> send me information on Four51 OrderCloud </small><br/>
-                </label>
+                </div>
 
-                <div >
+                <div>
                     <div class="row">
                         <div class="col-xs-6 col-xs-offset-3" >
-                            <button type="submit"  class="btn btn-block btn-lg btn-success" ng-disabled="recipientform.$invalid">SUBMIT</button>
+                            <button type="submit"  class="btn btn-block btn-lg" ng-disabled="recipientform.$invalid">SUBMIT</button>
                         </div>
                     </div>
                 </div>
 
-
-
             </div>
         </form>
     </div>
-    <loadingindicator ng-show="generatingReward"></loadingindicator>
+
+    </div>
+
+    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1" ng-show="generatingReward">
+        <loadingindicator ng-show="generatingReward"></loadingindicator>
+    </div>
+
+    <!--this is at the bottom to avoid showing up in the content div-->
+    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1" ng-show="rewardSuccess">
+        <div class="row bottom-form" ng-show="rewardSuccess">
+            <h3 align="center">Interested in more information about Four51?</h3><br>
+
+            <!--this is basically a new form for mandrill-->
+            <a class="btn btn-success center-block" href="#">view the demo site</a>
+        </div>
+    </div>
+
+
 </section>
